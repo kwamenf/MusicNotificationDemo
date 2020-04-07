@@ -3,13 +3,16 @@ name: Android_CI
 
 # 在满足以下条件触发这个workflow
 on:
-  push:
+  release:
+    types: [published]
     # 在指定的远程分支上，发生推送
     branches:
       - master
     # 指定文件发生修改
     paths:
       - 'config.gradle'
+    watch:
+      types: [started]
 jobs:
 # 多个job，如果有多个，每个以“-”开头
   first-job:
